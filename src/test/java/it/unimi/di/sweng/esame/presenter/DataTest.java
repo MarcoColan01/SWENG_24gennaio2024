@@ -1,11 +1,11 @@
 package it.unimi.di.sweng.esame.presenter;
 
+import it.unimi.di.sweng.esame.model.Data;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class DataTest {
     @Test

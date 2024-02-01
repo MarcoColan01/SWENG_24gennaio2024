@@ -1,6 +1,5 @@
-package it.unimi.di.sweng.esame.presenter;
+package it.unimi.di.sweng.esame.model;
 
-import it.unimi.di.sweng.esame.Main;
 import org.jetbrains.annotations.NotNull;
 
 public record Data(int giorno, int mese, int anno) implements Comparable<Data>{

@@ -3,5 +3,5 @@ package it.unimi.di.sweng.esame;
 import org.jetbrains.annotations.NotNull;
 
 public interface Observer<T> {
-    void update(@NotNull Observable<T> subject);
+    void update(@NotNull T state);
 }

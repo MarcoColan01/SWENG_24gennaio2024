@@ -1,7 +1,9 @@
 package it.unimi.di.sweng.esame.presenter;
 
-import it.unimi.di.sweng.esame.Main;
+import it.unimi.di.sweng.esame.model.Criticity;
+import it.unimi.di.sweng.esame.model.Data;
 import it.unimi.di.sweng.esame.model.Model;
+import it.unimi.di.sweng.esame.model.Segnalazione;
 import it.unimi.di.sweng.esame.view.InputView;
 import org.jetbrains.annotations.NotNull;
 
@@ -23,7 +25,7 @@ public class InputForecastPresenter implements InputPresenter{
             model.addSegnalazione(segnalazione);
             view.showSuccess();
         }catch(IllegalArgumentException e){
-            if (e.getMessage().startsWith("No enum constant it.unimi.di.sweng.esame.presenter.Criticity."))
+            if (e.getMessage().startsWith("No enum constant it.unimi.di.sweng.esame.model.Criticity."))
                 view.showError("incorrect phenomena name");
             else{
                 view.showError(e.getMessage());

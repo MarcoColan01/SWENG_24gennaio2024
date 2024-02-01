@@ -2,7 +2,6 @@ package it.unimi.di.sweng.esame.model;
 
 import it.unimi.di.sweng.esame.Observable;
 import it.unimi.di.sweng.esame.Observer;
-import it.unimi.di.sweng.esame.presenter.Segnalazione;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -40,7 +39,7 @@ public class Model implements Observable<List<Segnalazione>> {
     @Override
     public void notifyObservers() {
         for (Observer<List<Segnalazione>> observer : observers) {
-            observer.update(this);
+            observer.update(getState());
         }
     }
 

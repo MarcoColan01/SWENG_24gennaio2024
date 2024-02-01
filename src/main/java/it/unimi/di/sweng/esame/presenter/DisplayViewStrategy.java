@@ -1,5 +1,6 @@
 package it.unimi.di.sweng.esame.presenter;
 
+import it.unimi.di.sweng.esame.model.Segnalazione;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;

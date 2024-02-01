@@ -1,18 +1,20 @@
 package it.unimi.di.sweng.esame.presenter;
 
+import it.unimi.di.sweng.esame.model.Criticity;
+import it.unimi.di.sweng.esame.model.Data;
+import it.unimi.di.sweng.esame.model.Segnalazione;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class DisplayViewStrategyTest {
 
     @Test
     void testFirstViewStrategy(){
-        DisplayViewStrategy SUT = new FirstViewStrategy();
+        DisplayViewStrategy SUT = new FirstDisplayStrategy();
         List<Segnalazione> segnalazioni = new ArrayList<>();
         Segnalazione s1 = new Segnalazione("Milano",
                 Criticity.THUNDERSTORM,

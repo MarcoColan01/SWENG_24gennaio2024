@@ -1,4 +1,4 @@
-package it.unimi.di.sweng.esame.presenter;
+package it.unimi.di.sweng.esame.model;
 
 public enum Criticity {
     RAINY,

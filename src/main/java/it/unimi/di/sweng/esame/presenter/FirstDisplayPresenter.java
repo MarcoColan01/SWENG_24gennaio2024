@@ -1,9 +1,9 @@
 package it.unimi.di.sweng.esame.presenter;
 
 import it.unimi.di.sweng.esame.Main;
-import it.unimi.di.sweng.esame.Observable;
 import it.unimi.di.sweng.esame.Observer;
 import it.unimi.di.sweng.esame.model.Model;
+import it.unimi.di.sweng.esame.model.Segnalazione;
 import it.unimi.di.sweng.esame.view.DisplayView;
 import org.jetbrains.annotations.NotNull;
 
@@ -14,7 +14,7 @@ public class FirstDisplayPresenter implements Observer<List<Segnalazione>>{
     private final @NotNull Model model;
     private final @NotNull DisplayViewStrategy strategy;
     public FirstDisplayPresenter(@NotNull DisplayView view, @NotNull Model model,
-                                 @NotNull FirstViewStrategy strategy) {
+                                 @NotNull FirstDisplayStrategy strategy) {
         this.model = model;
         this.strategy = strategy;
         this.view = view;
@@ -22,10 +22,10 @@ public class FirstDisplayPresenter implements Observer<List<Segnalazione>>{
     }
 
     @Override
-    public void update(@NotNull Observable<List<Segnalazione>> subject) {
+    public void update(@NotNull List<Segnalazione> state) {
         int i = 0;
-        strategy.sortSegnalazioni(subject.getState());
-        for(String segnalazione: strategy.printSegnalazioni(subject.getState())){
+        strategy.sortSegnalazioni(state);
+        for(String segnalazione: strategy.printSegnalazioni(state)){
             view.set(i++, segnalazione);
             if(i >= Main.SIZEVIEW) return;
         }
