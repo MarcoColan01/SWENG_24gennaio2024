@@ -12,6 +12,14 @@ public class Model {
     private final Map<String, List<Segnalazione>> segnalazioni = new HashMap<>();
     public void addSegnalazione(@NotNull Segnalazione segnalazione) {
         if(segnalazioni.containsKey(segnalazione.nomeCitta())){
+            List<Segnalazione> s = segnalazioni.get(segnalazione.nomeCitta());
+            for(Segnalazione app: s){
+                if(app.data().compareTo(segnalazione.data()) == 0){
+                    s.remove(app);
+                    s.add(segnalazione);
+                    return;
+                }
+            }
             segnalazioni.get(segnalazione.nomeCitta()).add(segnalazione);
         }else{
             List<Segnalazione> s = new ArrayList<>();
