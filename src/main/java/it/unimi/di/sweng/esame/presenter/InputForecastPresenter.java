@@ -13,6 +13,8 @@ public class InputForecastPresenter implements InputPresenter{
     public void action(@NotNull String location, @NotNull String criticity, @NotNull String time) {
         if(location.isBlank()){
             view.showError("empty location name");
+            return;
         }
+        view.showSuccess();
     }
 }
