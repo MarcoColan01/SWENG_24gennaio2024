@@ -16,4 +16,12 @@ class InputForecastPresenterTest {
         SUT.action("", "", "");
         verify(view).showError("empty location name");
     }
+
+    @Test
+    void testLocalityOk(){
+        InputView view = mock(InputView.class);
+        InputForecastPresenter SUT = new InputForecastPresenter(view);
+        SUT.action("Milano", "", "");
+        verify(view).showSuccess();
+    }
 }
