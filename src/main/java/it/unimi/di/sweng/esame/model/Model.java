@@ -23,4 +23,8 @@ public class Model {
         }
         return new ArrayList<>(s);
     }
+
+    public List<Segnalazione> getSegnalazioni(@NotNull String nomeCitta){
+        return null;
+    }
 }
