@@ -21,7 +21,31 @@ class InputForecastPresenterTest {
     void testLocalityOk(){
         InputView view = mock(InputView.class);
         InputForecastPresenter SUT = new InputForecastPresenter(view);
+        SUT.action("Milano", "RAINY", "");
+        verify(view).showSuccess();
+    }
+
+    @Test
+    void tesCriticityEmpty(){
+        InputView view = mock(InputView.class);
+        InputForecastPresenter SUT = new InputForecastPresenter(view);
         SUT.action("Milano", "", "");
+        verify(view).showError("incorrect phenomena name");
+    }
+
+    @Test
+    void tesCriticityWrong(){
+        InputView view = mock(InputView.class);
+        InputForecastPresenter SUT = new InputForecastPresenter(view);
+        SUT.action("Milano", "APOCALIPSE", "");
+        verify(view).showError("incorrect phenomena name");
+    }
+
+    @Test
+    void tesCriticityOk(){
+        InputView view = mock(InputView.class);
+        InputForecastPresenter SUT = new InputForecastPresenter(view);
+        SUT.action("Milano", "RAINY", "");
         verify(view).showSuccess();
     }
 }
