@@ -21,7 +21,11 @@ public record Data(int giorno, int mese, int anno) implements Comparable<Data>{
     }
 
     @Override
-    public int compareTo(@NotNull Data o) {
-        return 0;
+    public int compareTo(@NotNull Data other) {
+        int res = Integer.compare(anno, other.anno);
+        if(res != 0) return res;
+        res = Integer.compare(mese, other.mese);
+        if(res != 0) return res;
+        return Integer.compare(giorno, other.giorno);
     }
 }
