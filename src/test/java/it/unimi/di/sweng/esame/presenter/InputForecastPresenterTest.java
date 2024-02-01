@@ -13,7 +13,7 @@ class InputForecastPresenterTest {
     void testLocalityEmpty(){
         InputView view = mock(InputView.class);
         InputForecastPresenter SUT = new InputForecastPresenter(view);
-        SUT.action("", "", "01/10/2024");
+        SUT.action("", "RAINY", "01/10/2024");
         verify(view).showError("empty location name");
     }
 

@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
   public static final int SIZEVIEW = 4;
-  public static Data DATA = Data.creaData("01/01/2024");
 
   public static void main(String[] args) {
     launch(args);
