@@ -1,13 +1,16 @@
 package it.unimi.di.sweng.esame.presenter;
 
 import it.unimi.di.sweng.esame.Main;
+import it.unimi.di.sweng.esame.model.Model;
 import it.unimi.di.sweng.esame.view.InputView;
 import org.jetbrains.annotations.NotNull;
 
 public class InputForecastPresenter implements InputPresenter{
     private final @NotNull InputView view;
-    public InputForecastPresenter(@NotNull InputView view) {
+    private final @NotNull Model model;
+    public InputForecastPresenter(@NotNull InputView view, @NotNull Model model) {
         this.view = view;
+        this.model = model;
         view.addHandlers(this);
     }
 
@@ -17,6 +20,7 @@ public class InputForecastPresenter implements InputPresenter{
             Criticity c = Criticity.valueOf(criticity);
             Data data = Data.creaData(time);
             Segnalazione segnalazione = new Segnalazione(location, c, data);
+            model.addSegnalazione(segnalazione);
             view.showSuccess();
         }catch(IllegalArgumentException e){
             if (e.getMessage().startsWith("No enum constant it.unimi.di.sweng.esame.presenter.Criticity."))

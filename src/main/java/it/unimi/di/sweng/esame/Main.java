@@ -48,7 +48,7 @@ public class Main extends Application {
     gridPane.add(byCriticality, 1, 2);
 
     Model model = new Model();
-    InputForecastPresenter inputPresenter = new InputForecastPresenter(input);
+    InputForecastPresenter inputPresenter = new InputForecastPresenter(input,model);
     FirstDisplayPresenter firstViewPresenter = new FirstDisplayPresenter(nextOfEachLocation,model,new FirstViewStrategy());
     SecondViewPresenter secondViewPresenter = new SecondViewPresenter(byDate,model,new SecondViewStrategy());
     ThirdDisplayPresenter thirdViewPresenter = new ThirdDisplayPresenter(byCriticality,model,new ThirdViewStrategy());

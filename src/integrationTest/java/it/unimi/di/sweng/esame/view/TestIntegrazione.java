@@ -81,7 +81,7 @@ public class TestIntegrazione {
   }
 
 
-  @Test@Disabled
+  @Test
   void testCorrectSingleInput(FxRobot robot) {
     writeOnGui(robot, input.text, "Milano");
     writeOnGui(robot, input.text1, "HURRICANE");
