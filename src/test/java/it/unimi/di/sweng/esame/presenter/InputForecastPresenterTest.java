@@ -48,4 +48,12 @@ class InputForecastPresenterTest {
         SUT.action("Milano", "RAINY", "");
         verify(view).showSuccess();
     }
+
+    @Test
+    void testDateFormatIncorrect(){
+        InputView view = mock(InputView.class);
+        InputForecastPresenter SUT = new InputForecastPresenter(view);
+        SUT.action("Milano", "RAINY", "1/10/2024");
+        verify(view).showError("incorrect data format (correct format: dd/mm/yyyy)");
+    }
 }
