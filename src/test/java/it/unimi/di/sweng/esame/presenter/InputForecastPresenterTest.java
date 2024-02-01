@@ -56,4 +56,12 @@ class InputForecastPresenterTest {
         SUT.action("Milano", "RAINY", "1/10/2024");
         verify(view).showError("incorrect data format (correct format: dd/mm/yyyy)");
     }
+
+    @Test
+    void testDateNotFuture(){
+        InputView view = mock(InputView.class);
+        InputForecastPresenter SUT = new InputForecastPresenter(view);
+        SUT.action("Milano", "RAINY", "01/10/2023");
+        verify(view).showError("forecast date cannot be in the past");
+    }
 }
