@@ -20,6 +20,7 @@ public class Model implements Observable<List<Segnalazione>> {
                 if(app.data().compareTo(segnalazione.data()) == 0){
                     s.remove(app);
                     s.add(segnalazione);
+                    notifyObservers();
                     return;
                 }
             }
