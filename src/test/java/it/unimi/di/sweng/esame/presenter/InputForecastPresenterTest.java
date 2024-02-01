@@ -21,7 +21,7 @@ class InputForecastPresenterTest {
     void testLocalityOk(){
         InputView view = mock(InputView.class);
         InputForecastPresenter SUT = new InputForecastPresenter(view);
-        SUT.action("Milano", "", "");
+        SUT.action("Milano", "RAIN", "");
         verify(view).showSuccess();
     }
 

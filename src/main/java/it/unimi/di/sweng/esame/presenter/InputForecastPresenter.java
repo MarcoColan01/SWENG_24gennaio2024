@@ -15,6 +15,10 @@ public class InputForecastPresenter implements InputPresenter{
             view.showError("empty location name");
             return;
         }
+        if(criticity.isBlank()){
+            view.showError("incorrect phenomena name");
+            return;
+        }
         view.showSuccess();
     }
 }
