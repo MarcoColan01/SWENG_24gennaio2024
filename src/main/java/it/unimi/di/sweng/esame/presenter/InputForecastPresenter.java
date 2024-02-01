@@ -8,6 +8,7 @@ public class InputForecastPresenter implements InputPresenter{
     private final @NotNull InputView view;
     public InputForecastPresenter(@NotNull InputView view) {
         this.view = view;
+        view.addHandlers(this);
     }
 
     @Override
