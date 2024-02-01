@@ -57,7 +57,7 @@ public class TestIntegrazione {
 
   }
 
-  @ParameterizedTest@Disabled
+  @ParameterizedTest
   @CsvSource(textBlock = """
       '',HURRICANE, 01/02/2024, empty location name
       Milano, THUNDERSTORM, 01/02/2023, forecast date cannot be in the past
