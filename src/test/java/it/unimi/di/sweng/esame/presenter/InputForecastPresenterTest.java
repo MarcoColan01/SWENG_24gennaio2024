@@ -1,5 +1,6 @@
 package it.unimi.di.sweng.esame.presenter;
 
+import it.unimi.di.sweng.esame.model.Model;
 import it.unimi.di.sweng.esame.view.InputView;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,7 @@ class InputForecastPresenterTest {
     @Test
     void testLocalityEmpty(){
         InputView view = mock(InputView.class);
-        InputForecastPresenter SUT = new InputForecastPresenter(view);
+        InputForecastPresenter SUT = new InputForecastPresenter(view,mock(Model.class));
         SUT.action("", "RAINY", "01/10/2024");
         verify(view).showError("empty location name");
     }
@@ -20,7 +21,7 @@ class InputForecastPresenterTest {
     @Test
     void testLocalityOk(){
         InputView view = mock(InputView.class);
-        InputForecastPresenter SUT = new InputForecastPresenter(view);
+        InputForecastPresenter SUT = new InputForecastPresenter(view,mock(Model.class));
         SUT.action("Milano", "RAINY", "01/10/2024");
         verify(view).showSuccess();
     }
@@ -28,7 +29,7 @@ class InputForecastPresenterTest {
     @Test
     void tesCriticityEmpty(){
         InputView view = mock(InputView.class);
-        InputForecastPresenter SUT = new InputForecastPresenter(view);
+        InputForecastPresenter SUT = new InputForecastPresenter(view,mock(Model.class));
         SUT.action("Milano", "", "01/10/2024");
         verify(view).showError("incorrect phenomena name");
     }
@@ -36,7 +37,7 @@ class InputForecastPresenterTest {
     @Test
     void tesCriticityWrong(){
         InputView view = mock(InputView.class);
-        InputForecastPresenter SUT = new InputForecastPresenter(view);
+        InputForecastPresenter SUT = new InputForecastPresenter(view,mock(Model.class));
         SUT.action("Milano", "APOCALIPSE", "01/10/2024");
         verify(view).showError("incorrect phenomena name");
     }
@@ -44,7 +45,7 @@ class InputForecastPresenterTest {
     @Test
     void tesCriticityOk(){
         InputView view = mock(InputView.class);
-        InputForecastPresenter SUT = new InputForecastPresenter(view);
+        InputForecastPresenter SUT = new InputForecastPresenter(view,mock(Model.class));
         SUT.action("Milano", "RAINY", "01/10/2024");
         verify(view).showSuccess();
     }
@@ -52,7 +53,7 @@ class InputForecastPresenterTest {
     @Test
     void testDateFormatIncorrect(){
         InputView view = mock(InputView.class);
-        InputForecastPresenter SUT = new InputForecastPresenter(view);
+        InputForecastPresenter SUT = new InputForecastPresenter(view,mock(Model.class));
         SUT.action("Milano", "RAINY", "1/10/2024");
         verify(view).showError("incorrect data format (correct format: dd/mm/yyyy)");
     }
@@ -60,7 +61,7 @@ class InputForecastPresenterTest {
     @Test
     void testDateNotFuture(){
         InputView view = mock(InputView.class);
-        InputForecastPresenter SUT = new InputForecastPresenter(view);
+        InputForecastPresenter SUT = new InputForecastPresenter(view,mock(Model.class));
         SUT.action("Milano", "RAINY", "01/10/2023");
         verify(view).showError("forecast date cannot be in the past");
     }

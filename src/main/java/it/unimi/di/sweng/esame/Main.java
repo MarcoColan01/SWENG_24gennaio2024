@@ -1,8 +1,8 @@
 package it.unimi.di.sweng.esame;
 
 
-import it.unimi.di.sweng.esame.presenter.Data;
-import it.unimi.di.sweng.esame.presenter.InputForecastPresenter;
+import it.unimi.di.sweng.esame.model.Model;
+import it.unimi.di.sweng.esame.presenter.*;
 import it.unimi.di.sweng.esame.view.DisplayView;
 import it.unimi.di.sweng.esame.view.InputForecastView;
 import javafx.application.Application;
@@ -47,9 +47,16 @@ public class Main extends Application {
     gridPane.add(byDate, 0, 2);
     gridPane.add(byCriticality, 1, 2);
 
+    Model model = new Model();
+    InputForecastPresenter inputPresenter = new InputForecastPresenter(input,model);
+    FirstDisplayPresenter firstViewPresenter = new FirstDisplayPresenter(nextOfEachLocation,model,new FirstViewStrategy());
+    SecondViewPresenter secondViewPresenter = new SecondViewPresenter(byDate,model,new SecondViewStrategy());
+    ThirdDisplayPresenter thirdViewPresenter = new ThirdDisplayPresenter(byCriticality,model,new ThirdViewStrategy());
+
+
     //HINT: utile dopo aver definito model per inizializzare viste
-    //model.notifyObservers();
-    InputForecastPresenter inputPresenter = new InputForecastPresenter(input);
+    model.notifyObservers();
+
 
     Scene scene = new Scene(gridPane);
     primaryStage.setScene(scene);

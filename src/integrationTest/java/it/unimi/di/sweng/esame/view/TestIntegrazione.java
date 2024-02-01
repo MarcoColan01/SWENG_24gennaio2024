@@ -73,7 +73,7 @@ public class TestIntegrazione {
     verifyThat(input.error, hasText(error));
   }
 
-  @Test@Disabled
+  @Test
   public void testDisplayStart(FxRobot robot) {
     assertThat(displayLastOfEachLocation.get(0)).isEqualTo("");
     assertThat(displatByDate.get(0)).isEqualTo("");
@@ -81,7 +81,7 @@ public class TestIntegrazione {
   }
 
 
-  @Test@Disabled
+  @Test
   void testCorrectSingleInput(FxRobot robot) {
     writeOnGui(robot, input.text, "Milano");
     writeOnGui(robot, input.text1, "HURRICANE");
@@ -99,7 +99,7 @@ public class TestIntegrazione {
 
   }
 
-  @Test@Disabled
+  @Test
   void testCorrectMultInputWithSameLocation(FxRobot robot) {
     writeOnGui(robot, input.text, "Milano");
     writeOnGui(robot, input.text1, "HURRICANE");

@@ -9,12 +9,12 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class FirstDisplayPresenter implements Observer<List<Segnalazione>>{
+public class SecondViewPresenter implements Observer<List<Segnalazione>> {
     private final @NotNull DisplayView view;
     private final @NotNull Model model;
     private final @NotNull DisplayViewStrategy strategy;
-    public FirstDisplayPresenter(@NotNull DisplayView view, @NotNull Model model,
-                                 @NotNull FirstViewStrategy strategy) {
+    public SecondViewPresenter(@NotNull DisplayView view, @NotNull Model model,
+                                 @NotNull DisplayViewStrategy strategy) {
         this.model = model;
         this.strategy = strategy;
         this.view = view;
