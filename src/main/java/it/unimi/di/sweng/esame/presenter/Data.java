@@ -1,6 +1,8 @@
 package it.unimi.di.sweng.esame.presenter;
 
-public record Data(int giorno, int mese, int anno) {
+import org.jetbrains.annotations.NotNull;
+
+public record Data(int giorno, int mese, int anno) implements Comparable<Data>{
     public static Data creaData(String data){
         String[] app = data.split("/");
         int giorno = Integer.parseInt(app[0]);
@@ -16,5 +18,10 @@ public record Data(int giorno, int mese, int anno) {
         sb.append(mese < 10 ? String.format("0%d", mese) : mese).append("/");
         sb.append(anno).append("/");
         return sb.deleteCharAt(sb.length()-1).toString();
+    }
+
+    @Override
+    public int compareTo(@NotNull Data o) {
+        return 0;
     }
 }
