@@ -29,6 +29,7 @@ public class Model implements Observable<List<Segnalazione>> {
             s.add(segnalazione);
             segnalazioni.put(segnalazione.nomeCitta(),s);
         }
+        notifyObservers();
     }
 
     public List<Segnalazione> getSegnalazioni(@NotNull String nomeCitta){
