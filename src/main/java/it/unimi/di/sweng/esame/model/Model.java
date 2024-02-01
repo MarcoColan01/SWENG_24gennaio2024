@@ -11,9 +11,13 @@ import java.util.Map;
 public class Model {
     private final Map<String, List<Segnalazione>> segnalazioni = new HashMap<>();
     public void addSegnalazione(@NotNull Segnalazione segnalazione) {
-        List<Segnalazione> s = new ArrayList<>();
-        s.add(segnalazione);
-        segnalazioni.put(segnalazione.nomeCitta(),s);
+        if(segnalazioni.containsKey(segnalazione.nomeCitta())){
+            segnalazioni.get(segnalazione.nomeCitta()).add(segnalazione);
+        }else{
+            List<Segnalazione> s = new ArrayList<>();
+            s.add(segnalazione);
+            segnalazioni.put(segnalazione.nomeCitta(),s);
+        }
     }
 
     public List<Segnalazione> getSegnalazioni() {
@@ -25,6 +29,6 @@ public class Model {
     }
 
     public List<Segnalazione> getSegnalazioni(@NotNull String nomeCitta){
-        return null;
+        return new ArrayList<>(segnalazioni.get(nomeCitta));
     }
 }
