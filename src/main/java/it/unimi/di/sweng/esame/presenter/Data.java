@@ -8,4 +8,13 @@ public record Data(int giorno, int mese, int anno) {
         int anno = Integer.parseInt(app[2]);
         return new Data(giorno, mese, anno);
     }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(giorno < 10 ? String.format("0%d", giorno) : giorno).append("/");
+        sb.append(mese < 10 ? String.format("0%d", mese) : mese).append("/");
+        sb.append(anno).append("/");
+        return sb.deleteCharAt(sb.length()-1).toString();
+    }
 }
