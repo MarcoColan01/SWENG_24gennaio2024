@@ -29,5 +29,10 @@ public class ThirdDisplayPresenter implements Observer<List<Segnalazione>> {
             view.set(i++, segnalazione);
             if(i >= Main.SIZEVIEW) return;
         }
+        if(i < Main.SIZEVIEW){
+            for(int j = i; j < Main.SIZEVIEW; j++){
+                view.set(j, "");
+            }
+        }
     }
 }
