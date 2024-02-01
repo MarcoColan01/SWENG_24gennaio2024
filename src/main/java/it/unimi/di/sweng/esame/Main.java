@@ -1,6 +1,8 @@
 package it.unimi.di.sweng.esame;
 
 
+import it.unimi.di.sweng.esame.presenter.Data;
+import it.unimi.di.sweng.esame.presenter.InputForecastPresenter;
 import it.unimi.di.sweng.esame.view.DisplayView;
 import it.unimi.di.sweng.esame.view.InputForecastView;
 import javafx.application.Application;
@@ -47,6 +49,7 @@ public class Main extends Application {
 
     //HINT: utile dopo aver definito model per inizializzare viste
     //model.notifyObservers();
+    InputForecastPresenter inputPresenter = new InputForecastPresenter(input);
 
     Scene scene = new Scene(gridPane);
     primaryStage.setScene(scene);
