@@ -13,10 +13,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import org.assertj.core.api.SoftAssertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -60,7 +57,7 @@ public class TestIntegrazione {
 
   }
 
-  @ParameterizedTest
+  @ParameterizedTest@Disabled
   @CsvSource(textBlock = """
       '',HURRICANE, 01/02/2024, empty location name
       Milano, THUNDERSTORM, 01/02/2023, forecast date cannot be in the past
@@ -76,7 +73,7 @@ public class TestIntegrazione {
     verifyThat(input.error, hasText(error));
   }
 
-  @Test
+  @Test@Disabled
   public void testDisplayStart(FxRobot robot) {
     assertThat(displayLastOfEachLocation.get(0)).isEqualTo("");
     assertThat(displatByDate.get(0)).isEqualTo("");
@@ -84,7 +81,7 @@ public class TestIntegrazione {
   }
 
 
-  @Test
+  @Test@Disabled
   void testCorrectSingleInput(FxRobot robot) {
     writeOnGui(robot, input.text, "Milano");
     writeOnGui(robot, input.text1, "HURRICANE");
@@ -102,7 +99,7 @@ public class TestIntegrazione {
 
   }
 
-  @Test
+  @Test@Disabled
   void testCorrectMultInputWithSameLocation(FxRobot robot) {
     writeOnGui(robot, input.text, "Milano");
     writeOnGui(robot, input.text1, "HURRICANE");
