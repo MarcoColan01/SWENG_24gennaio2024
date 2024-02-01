@@ -20,6 +20,7 @@ public class Model implements Observable<List<Segnalazione>> {
                 if(app.data().compareTo(segnalazione.data()) == 0){
                     s.remove(app);
                     s.add(segnalazione);
+                    notifyObservers();
                     return;
                 }
             }
@@ -29,6 +30,7 @@ public class Model implements Observable<List<Segnalazione>> {
             s.add(segnalazione);
             segnalazioni.put(segnalazione.nomeCitta(),s);
         }
+        notifyObservers();
     }
 
     public List<Segnalazione> getSegnalazioni(@NotNull String nomeCitta){
