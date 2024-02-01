@@ -73,7 +73,7 @@ public class TestIntegrazione {
     verifyThat(input.error, hasText(error));
   }
 
-  @Test@Disabled
+  @Test
   public void testDisplayStart(FxRobot robot) {
     assertThat(displayLastOfEachLocation.get(0)).isEqualTo("");
     assertThat(displatByDate.get(0)).isEqualTo("");
