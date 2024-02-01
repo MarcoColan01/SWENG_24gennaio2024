@@ -1,6 +1,7 @@
 package it.unimi.di.sweng.esame;
 
 
+import it.unimi.di.sweng.esame.presenter.Data;
 import it.unimi.di.sweng.esame.view.DisplayView;
 import it.unimi.di.sweng.esame.view.InputForecastView;
 import javafx.application.Application;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
   public static final int SIZEVIEW = 4;
+  public static Data DATA = Data.creaData("01/01/2024");
 
   public static void main(String[] args) {
     launch(args);
