@@ -24,4 +24,12 @@ class ModelTest {
         SUT.addSegnalazione(new Segnalazione("Milano", Criticity.HURRICANE, Data.creaData("01/05/2024")));
         assertThat(SUT.getSegnalazioni("Milano")).hasSize(2);
     }
+
+    @Test
+    void testAddSegnalazioneReplace(){
+        Model SUT = new Model();
+        SUT.addSegnalazione(new Segnalazione("Milano", Criticity.RAINY, Data.creaData("02/05/2024")));
+        SUT.addSegnalazione(new Segnalazione("Milano", Criticity.HURRICANE, Data.creaData("02/05/2024")));
+        assertThat(SUT.getSegnalazioni("Milano")).hasSize(1);
+    }
 }
