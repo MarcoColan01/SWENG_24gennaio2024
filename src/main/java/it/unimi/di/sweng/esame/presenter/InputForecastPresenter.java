@@ -25,6 +25,10 @@ public class InputForecastPresenter implements InputPresenter{
             view.showError("incorrect phenomena name");
             return;
         }
+        if(!time.matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/(\\d{4})$")){
+            view.showError("incorrect data format (correct format: dd/mm/yyyy)");
+            return;
+        }
         view.showSuccess();
     }
 }
